@@ -11,6 +11,18 @@ defined('COREPATH') or exit('No direct script access allowed');
 | e.g $config['services_type'] = ['some_service_alias' => 'path_to_discover_service'];
 */
 
+/*
+|--------------------------------------------------------------------------
+| A Service Discovery Implementation
+|--------------------------------------------------------------------------
+|
+| If you would like to use other services from packages like composer 
+| or a loaded third party package, you will specify it here. 
+| See the user guide for details. (Currently works but left with some few tweaks)
+|
+*/
+
+$config['app_services'] = [];
 
 /*
 |--------------------------------------------------------------------------
@@ -24,17 +36,3 @@ defined('COREPATH') or exit('No direct script access allowed');
 */
 
 $config['webby_services'] = [];
-
-
-/*
-|--------------------------------------------------------------------------
-| A Service Discovery Implementation
-|--------------------------------------------------------------------------
-|
-| If you would like to use other services from packages like composer 
-| or a loaded third party package, you will specify it here. 
-| See the user guide for details. (Currently works but left some few tweaks)
-|
-*/
-
-$config['app_services'] = [];
