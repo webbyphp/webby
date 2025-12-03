@@ -19,7 +19,7 @@ defined('COREPATH') or exit('No direct script access allowed');
 | Set the file extension for the plates template
 |
 */
-$config['plate_extension'] = '.php';
+$config['view_extension'] = '.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -71,7 +71,7 @@ $config['helpers'] = [];
 |--------------------------------------------------------------------------
 |
 | Set to true and Plate helper file will be loaded in the initialization.
-| it is located at vendor/sylynder/engine/Core/helpers/plate_helper.php
+| it is located at vendor/webbyphp/engine/Core/helpers/view_helper.php
 |
 */
 $config['enable_helper'] = true;
