@@ -11,7 +11,7 @@ defined('COREPATH') or exit('No direct script access allowed');
 */
 
 $config['view'] = [
-    
+
     /*
     |--------------------------------------------------------------------------
     | Route Views
@@ -21,31 +21,27 @@ $config['view'] = [
     | can be accessed directly through Route::view(). 
     |
     | You will have to implement the method below in a dedicated
-    | Controller, preferably the "Web/App/Pages" Controller class
-    | Which you will have to create in the Web/App Module
+    | Controller, preferably the "Web/App/App" Controller class
     |
     |   public function views($view = '')
     |   {
-    |       return view(route_view($view), $this->data);
+    |       return view(
+    |           route_view($view), 
+    |           $this->data
+    |       );
     |   }
     |
     | A correct way to set the 'route_views_through' config is explained below
     |
-    | 'route_views_through' => 'Module/Controller/MethodName/',
-    |                   OR
-    | 'route_views_through' => 'Controller/MethodName/',
-    |  the above is used in a non module controller
+    | 'route_views_through' => 'Module/Controller/MethodName',
     |
-    | e.g. 'route_views_through' => 'App/Pages/views/',
-    |                   OR
-    | e.g. 'route_views_through' => 'Pages/views/',
-    | in a non module controller
+    | e.g. 'route_views_through' => 'App/App/views',
     |
-    | Note: always end specified path with a trailing slash
-    |
-    | Anytime you use Route::page('a-view-name')
+    | Anytime you use Route::view('/a-view-name') 
     | It will be routed using the name of the view as it's route
+    | Don't forget the forward slash '/' before the view name
     | 
+    | Note: always end specified path with a trailing slash
     |
     */
     'route_views_through' => '',
@@ -88,7 +84,7 @@ $config['view'] = [
     |
     | Don't use any other value below apart from "plates" else views will malfunction
     */
-    
+
     'view_engine' => '', // e.g. plates | blade | latte | fat-free | twig | etc
 
 ];
