@@ -15,7 +15,7 @@ defined('COREPATH') or exit('No direct script access allowed');
 | -------------------------------------------------------------------------
 | Application name: e.g Webby 
 |  
-| It makes available everywhere
+| It makes the name available everywhere
 | 
 | Your App Name might be the name of the application
 | you are working on.
@@ -23,6 +23,18 @@ defined('COREPATH') or exit('No direct script access allowed');
 |
  */
 $config['app_name'] = getenv('app.name') ?: 'Webby';
+
+/*
+| -------------------------------------------------------------------------
+| Cached Classmap File 
+|  
+| Allows you to set the cache name for your autoloaded classmap
+| 
+| -------------------------------------------------------------------------
+|
+ */
+$config['cached_classmap_file'] = 'autoload_classmap.php';
+
 
 /*
 | -------------------------------------------------------------------------
@@ -34,6 +46,18 @@ $config['app_name'] = getenv('app.name') ?: 'Webby';
 |
  */
 $config['app_status'] = true;
+
+/*
+| -------------------------------------------------------------------------
+| Application Uses Subdomain
+|  
+| Indicates whether the application uses subdomain routing.
+| default value is false. Setting it to `true` enables subdomain routing, while 
+| setting it to `false` disables it.
+| -------------------------------------------------------------------------
+|
+ */
+$config['uses_subdomain'] = false;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,5 +122,45 @@ $config['app_error_view'] = 'errors/app/error404';
 |
  */
 $config['app_error_route'] = '404_override';
+
+/*
+| -------------------------------------------------------------------------
+| Set location to view profiler bar
+| -------------------------------------------------------------------------
+| Allows you to set the location of profiler bar
+| 
+| The options available are:
+|
+| bottom-left
+| bottom-right
+| top-left
+| top-right
+| bottom
+| top
+| 
+*/
+$config['profiler_bar_location'] = 'bottom';
+
+/*
+| -------------------------------------------------------------------------
+| Set app profiler view
+| -------------------------------------------------------------------------
+| Allows you to set your custom profiler
+| 
+*/
+$config['profiler_view'] = 'default-view';
+
+/*
+| -------------------------------------------------------------------------
+| Set editor to use to access error line
+| -------------------------------------------------------------------------
+| Allows you to go to error line in a specified editor
+|
+| Supported editors are antigravity, vscode, sublime, emacs, phpstorm,
+| cursor, atom
+|
+*/
+
+$config['use_editor'] = 'vscode';
 
 // ------------------------- Custom Application Config Here --------------------------------
