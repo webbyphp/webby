@@ -2,6 +2,16 @@
 defined('COREPATH') or exit('No direct script access allowed');
 
 /*
+|--------------------------------------------------------------------------
+| Your Constants Here
+|--------------------------------------------------------------------------
+|
+ */
+
+
+// ---- All Constants Defined Below Are Untouchable If You Don't Know What You Are Doing ------------
+
+/*
 | This file contains constants for making Webby work great
 | Don't change any defined "constant name" else it will result
 | in an error or may brake the application
@@ -29,9 +39,9 @@ defined('COREPATH') or exit('No direct script access allowed');
 $base_url = '';
 
 if (!defined('STDIN')) {
-
-    $base_url = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP_HOST'];
-    $base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
+    $base_url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
+    $base_url .= "://" . $_SERVER['HTTP_HOST'];
+    $base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 }
 
 define('APP_BASE_URL', getenv('app.baseURL') ?: $base_url);
@@ -51,6 +61,21 @@ define('APP_BASE_URL', getenv('app.baseURL') ?: $base_url);
  */
 
 define('APP_ENCRYPTION_KEY', getenv('app.encryptionKey'));
+
+/*
+ | --------------------------------------------------------------------
+ | App Namespace
+ | --------------------------------------------------------------------
+ |
+ | This defines the default Namespace that is used throughout
+ | CodeIgniter to refer to the Application directory. Change
+ | this constant to change the namespace that all application
+ | classes should use.
+ |
+ | NOTE: changing this will require manually modifying the
+ | existing namespaces of App\* namespaced-classes.
+ */
+defined('APP_NAMESPACE') || define('APP_NAMESPACE', 'App');
 
 /*
 |--------------------------------------------------------------------------
@@ -140,6 +165,18 @@ define('APP_MAINTENANCE_PATH', ROOTPATH . 'writable/maintenance/');
 define('APP_MAINTENANCE_VIEW', 'maintenance.php');
 
 /*
+| -------------------------------------------------------------------------
+| Application Uses Subdomain
+|  
+| Indicates whether the application uses subdomain routing.
+| default value is false. Setting it to `true` enables subdomain routing, while 
+| setting it to `false` disables it.
+| -------------------------------------------------------------------------
+|
+ */
+define('HOST_NAME', getenv('host_name'));
+
+/*
 |--------------------------------------------------------------------------
 | Log Configurations
 |--------------------------------------------------------------------------
@@ -148,6 +185,10 @@ define('APP_MAINTENANCE_VIEW', 'maintenance.php');
 
 define('LOG_PATH', ROOTPATH . 'writable/logs/system/');
 define('APP_LOG_PATH', ROOTPATH . 'writable/logs/app/');
+define('USER_LOG_PATH', ROOTPATH . 'writable/logs/user/');
+define('INFO_LOG_PATH', ROOTPATH . 'writable/logs/system/info/');
+define('DEBUG_LOG_PATH', ROOTPATH . 'writable/logs/system/debug/');
+define('ERROR_LOG_PATH', ROOTPATH . 'writable/logs/system/error/');
 
 /*
 |   Log Threshold for Webby logging
@@ -160,7 +201,7 @@ define('APP_LOG_PATH', ROOTPATH . 'writable/logs/app/');
 |    6 = All Messages
  */
 
-define('LOG_LEVEL', getenv('log.level') ?: 3);
+define('LOG_LEVEL', getenv('log.level') ?: 4);
 
 /*
 |   Log permission for Webby logging
@@ -241,7 +282,7 @@ define('SESSION_REGENERATE_DESTROY', getenv('app.sessionRegenerateDestroy') ?: f
 |  Cookie Related Variables
 |
 |  The Constants below have been made to control the values
-|  of the $config['sess|'] array variables in the vendor/sylynder/engine/config/config.php
+|  of the $config['sess|'] array variables in the vendor/webbyphp/engine/config/config.php
 |
 |  'cookie_prefix'   = Set a cookie name prefix if you need to avoid collisions
 |  'cookie_domain'   = Set to .your-domain.com for site-wide cookies
@@ -282,12 +323,16 @@ define('COOKIE_SAMESITE', getenv('app.cookieSameSite') ?: 'Lax');
 |  'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
  */
 
+$exludedURIs = str_contains(getenv('app.CSRFExcludeURIs'), ',')
+    ? explode(',', getenv('app.CSRFExcludeURIs'))
+    : (getenv('app.CSRFExcludeURIs') ?: []);
+
 define('CSRF_PROTECTION', getenv('app.CSRFProtection') ?: false);
 define('CSRF_TOKEN_NAME', getenv('app.CSRFTokenName') ?: 'csrf_app_token');
 define('CSRF_COOKIE_NAME', getenv('app.CSRFCookieName') ?: 'csrf_app');
 define('CSRF_EXPIRE', getenv('app.CSRFExpire') ?: 7200);
 define('CSRF_REGENERATE', getenv('app.CSRFRegenerate') ?: false);
-define('CSRF_EXCLUDE_URIS', getenv('app.CSRFExcludeURIs') ?: []);
+define('CSRF_EXCLUDE_URIS', $exludedURIs);
 
 /*
 | These constants are defined to help make some
@@ -309,6 +354,7 @@ define('DEFAULT_TIMEZONE', 'Africa/Accra'); // system_default_timezone()
 
 define('TIMEZONE', date_default_timezone_get()); // timezone()
 define('DATETIME', date('Y-m-d H:i:s', time())); // datetime()
+define('NOW', time()); // now(true)
 define('TIME', date('H:i:s', time()));
 define('DATE', date('Y-m-d'));
 define('TIMESTAMP', strtotime(date('Y-m-d') . ' ' . date('H:i:s'))); // timestamp()
@@ -326,10 +372,125 @@ define('DOT', '.');
 define('AT', '@');
 define('HASH', '#');
 define('PERCENT', '%');
+define('COMMA', ',');
+define('COLON', ':');
+define('SEMICOLON', ';');
+
+/*
+ |--------------------------------------------------------------------------
+ | Number Constants
+ |--------------------------------------------------------------------------
+ |
+ | Use in place of numbers between 0 to 10
+ */
+define('ZERO', 0);
+define('ONE', 1);
+define('TWO', 2);
+define('THREE', 3);
+define('FOUR', 4);
+define('FIVE', 5);
+define('SIX', 6);
+define('SEVEN', 7);
+define('EIGHT', 8);
+define('NINE', 9);
+define('TEN', 10);
 
 /*
 |--------------------------------------------------------------------------
-| Your Constants Here
+| Display Debug backtrace
 |--------------------------------------------------------------------------
 |
+| If set to true, a backtrace will be displayed along with php errors. If
+| error_reporting is disabled, the backtrace will not display, regardless
+| of this setting
+|
+*/
+defined('SHOW_DEBUG_BACKTRACE') or define('SHOW_DEBUG_BACKTRACE', true);
+
+/*
+|--------------------------------------------------------------------------
+| File and Directory Modes
+|--------------------------------------------------------------------------
+|
+| These prefs are used when checking and setting modes when working
+| with the file system.  The defaults are fine on servers with proper
+| security, but you may wish (or even need) to change the values in
+| certain environments (Apache running a separate process for each
+| user, PHP under CGI with Apache suEXEC, etc.).  Octal values should
+| always be used to set the mode correctly.
+|
+*/
+defined('FILE_READ_MODE')  or define('FILE_READ_MODE', 0644);
+defined('FILE_WRITE_MODE') or define('FILE_WRITE_MODE', 0666);
+defined('DIR_READ_MODE')   or define('DIR_READ_MODE', 0755);
+defined('DIR_WRITE_MODE')  or define('DIR_WRITE_MODE', 0755);
+
+/*
+|--------------------------------------------------------------------------
+| File Stream Modes
+|--------------------------------------------------------------------------
+|
+| These modes are used when working with fopen()/popen()
+|
+*/
+defined('FOPEN_READ')                           or define('FOPEN_READ', 'rb');
+defined('FOPEN_READ_WRITE')                     or define('FOPEN_READ_WRITE', 'r+b');
+defined('FOPEN_WRITE_CREATE_DESTRUCTIVE')       or define('FOPEN_WRITE_CREATE_DESTRUCTIVE', 'wb'); // truncates existing file data, use with care
+defined('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE')  or define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE', 'w+b'); // truncates existing file data, use with care
+defined('FOPEN_WRITE_CREATE')                   or define('FOPEN_WRITE_CREATE', 'ab');
+defined('FOPEN_READ_WRITE_CREATE')              or define('FOPEN_READ_WRITE_CREATE', 'a+b');
+defined('FOPEN_WRITE_CREATE_STRICT')            or define('FOPEN_WRITE_CREATE_STRICT', 'xb');
+defined('FOPEN_READ_WRITE_CREATE_STRICT')       or define('FOPEN_READ_WRITE_CREATE_STRICT', 'x+b');
+
+/*
+|--------------------------------------------------------------------------
+| Exit Status Codes
+|--------------------------------------------------------------------------
+|
+| Used to indicate the conditions under which the script is exit()ing.
+| While there is no universal standard for error codes, there are some
+| broad conventions.  Three such conventions are mentioned below, for
+| those who wish to make use of them.  The CodeIgniter defaults were
+| chosen for the least overlap with these conventions, while still
+| leaving room for others to be defined in future versions and user
+| applications.
+|
+| The three main conventions used for determining exit status codes
+| are as follows:
+|
+|    Standard C/C++ Library (stdlibc):
+|       http://www.gnu.org/software/libc/manual/html_node/Exit-Status.html
+|       (This link also contains other GNU-specific conventions)
+|    BSD sysexits.h:
+|       http://www.gsp.com/cgi-bin/man.cgi?section=3&topic=sysexits
+|    Bash scripting:
+|       http://tldp.org/LDP/abs/html/exitcodes.html
+|
+*/
+defined('EXIT_SUCCESS')        or define('EXIT_SUCCESS', 0); // no errors
+defined('EXIT_ERROR')          or define('EXIT_ERROR', 1); // generic error
+defined('EXIT_CONFIG')         or define('EXIT_CONFIG', 3); // configuration error
+defined('EXIT_UNKNOWN_FILE')   or define('EXIT_UNKNOWN_FILE', 4); // file not found
+defined('EXIT_UNKNOWN_CLASS')  or define('EXIT_UNKNOWN_CLASS', 5); // unknown class
+defined('EXIT_UNKNOWN_METHOD') or define('EXIT_UNKNOWN_METHOD', 6); // unknown class member
+defined('EXIT_USER_INPUT')     or define('EXIT_USER_INPUT', 7); // invalid user input
+defined('EXIT_DATABASE')       or define('EXIT_DATABASE', 8); // database error
+defined('EXIT__AUTO_MIN')      or define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
+defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+/*
+ |--------------------------------------------------------------------------
+ | Timing Constants
+ |--------------------------------------------------------------------------
+ |
+ | Provide simple ways to work with the myriad of PHP functions that
+ | require information to be in seconds.
  */
+defined('SECOND') or define('SECOND', 1);
+defined('MINUTE') or define('MINUTE', 60);
+defined('HOUR')   or define('HOUR', 3600);
+defined('DAY')    or define('DAY', 86400);
+defined('WEEK')   or define('WEEK', 604800);
+defined('MONTH')  or define('MONTH', 2592000);
+defined('YEAR')   or define('YEAR', 31536000);
+defined('DECADE') or define('DECADE', 315360000);
