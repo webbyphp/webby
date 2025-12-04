@@ -2,6 +2,7 @@
 defined('COREPATH') or exit('No direct script access allowed');
 
 use Base\Route\Route;
+use Base\Console\Route\Command;
 
 /*
 | -------------------------------------------------------------------------
