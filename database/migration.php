@@ -23,7 +23,7 @@ $migrate = [];
 | and disable it back when you're done.
 |
 */
-$migrate['migration_enabled'] = false;
+$migrate['migration_enabled'] = true;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ $migrate['migration_version'] = 0;
 | Also, writing permission is required within the migrations path.
 |
 */
-$migrate['migration_path'] = ROOTPATH.'database/migrations/';
+$migrate['migration_path'] = ROOTPATH . 'database/migrations/';
 
 /*
 |
