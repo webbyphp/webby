@@ -6,13 +6,6 @@ define('FCPATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
 // The name of this file
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
-// Use Webby Outside
-define('WEBBY_OUTSIDE',  filter_var(getenv('app.use.outside'), FILTER_VALIDATE_BOOLEAN));
-
-if (WEBBY_OUTSIDE) {
-    return;
-}
-
 /*
  *---------------------------------------------------------------
  * COMPOSER AUTOLOADING
@@ -25,12 +18,12 @@ require __DIR__ . '/../vendor/autoload.php';
 /*
  * Paths for needed directories
  */
-include_once __DIR__ . '/../core/paths.php';
+include_once __DIR__ . '/../bootstrap/paths.php';
 
 /*
  * Bootstrap the application here
  */
-include_once __DIR__ . '/../core/bootstrap.php';
+include_once __DIR__ . '/../bootstrap/bootstrap.php';
 
 /*
  * Function to detect application 
@@ -39,15 +32,11 @@ include_once __DIR__ . '/../core/bootstrap.php';
 function detect_environment()
 {
     // Make sure ENVIRONMENT isn't already set by other means.
-    if (! defined('ENVIRONMENT'))
-    {
+    if (! defined('ENVIRONMENT')) {
         // running under Continuous Integration server?
-        if (getenv('CI') !== false)
-        {
+        if (getenv('CI') !== false) {
             define('ENVIRONMENT', 'testing');
-        }
-        else
-        {
+        } else {
             return $_SERVER['app.env'] ?: 'production';
         }
     }
@@ -89,11 +78,7 @@ switch (ENVIRONMENT) {
     case 'testing':
     case 'production':
         ini_set('display_errors', 0);
-        if (version_compare(PHP_VERSION, '5.3', '>=')) {
-            error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
-        } else {
-            error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
-        }
+        error_reporting(E_ALL & ~E_NOTICE & ~E_USER_NOTICE);
         break;
 
     default:
