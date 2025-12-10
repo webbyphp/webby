@@ -46,8 +46,13 @@
     "scripts": {
         "post-create-project-cmd": [
             "@php webby set --env",
-            "@php webby key:generate"
-        ]
+            "@php webby key:generate",
+            "echo \"Setting up local PHPUnit config...\"",
+            "php -r \"file_exists('phpunit.xml') || copy('phpunit.xml.dist', 'phpunit.xml');\"",
+            "echo \"Project setup complete!\""
+        ],
+        "test": "./vendor/bin/pest --colors=always",
+        "test:coverage": "./vendor/bin/pest --coverage --colors=always"
     },
     "minimum-stability": "stable",
     "prefer-stable": true
