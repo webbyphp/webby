@@ -1,30 +1,31 @@
 <p align="center">
-    <img src="public/assets/webby-readme.png" width="600" alt="Webby">
+    <img src="public/assets/webbyphp.png" width="600" alt="WebbyPHP">
 </p>
 
-[![MIT License](https://img.shields.io/github/license/sylynder/webby)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs) ![Lines of code](https://img.shields.io/tokei/lines/github/sylynder/webby) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/sylynder/webby) ![Packagist Version](https://img.shields.io/packagist/v/sylynder/webby) ![Packagist Downloads (custom server)](https://img.shields.io/packagist/dt/sylynder/webby)
+[![MIT License](https://img.shields.io/github/license/webbyphp/webby)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs) ![Lines of code](https://img.shields.io/tokei/lines/github/webbyphp/webby) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/webbyphp/webby) ![Packagist Version](https://img.shields.io/packagist/v/webbyphp/webby) ![Packagist Downloads (custom server)](https://img.shields.io/packagist/dt/webbyphp/webby)
 
-## About Webby
+## About WebbyPHP
+---
+WebbyPHP is a lightweight, modular, “lego-style” PHP framework designed to make building APIs, CLI/Console tools, and Web Applications simple, modern, and enjoyable—especially for beginners.
 
-**Webby** aims to be a "lego-like" PHP framework that allows you to build APIs, Console/Cli and Web Applications in a modular architecture, that can also integrate other features from existing PHP frameworks or other PHP packages with ease. 
+Built as an enhanced extension of CodeIgniter 3, WebbyPHP brings a fresh, modern developer experience (DX) while keeping the simplicity, speed, and small footprint that made CI3 popular. It also introduces flexible modular architecture, improved routing, and integration patterns that make it easy to combine packages or even borrow concepts from other PHP frameworks.
 
-It is an extension of the CodeIgniter 3 framework for easy web application development with an easy developer experience (DX) for beginners.
-
-Build Awesome PHP applications with a "Simple(Sweet) Application Architecture". 
+Build powerful PHP applications with a simple, sweet, and scalable architecture.
 
 ## Features
 
-- Easy and Improved Routing
+- Improved and Modern Routing
 - HMVC First Architecture
-- Application can be APIs, Console or Web Based
-- Easy to integrate with Other Frameworks
-- Extend with Packages
-- Use "Plates" a blade-like templating engine for your views
-- Use "Services" to seperate business logic from Controllers
-- Use "Actions" instead of "Services" for CRUD functionalities or business logic
+- Supports API-only, Console/CLI, or Web Apps
+- Easy Integration with Other Frameworks & PHP Packages
+- Extendable with Standalone WebbyPHP Packages
+- “Plates” Templating Engine (configurable Blade-like views)
+- Use “Services” to organize business logic
+- Use “Actions” for CRUD or isolated logic
+- Forms/Rules for Request Validation
 - Use "Forms Or Rules" to validate input requests
-- A near "Service discovery" feature included
-- Use any database abstraction or library you want as a model
+- Near Service-Discovery-Like Features
+- Bring Your Own Database Layer — any library or abstraction works
 
 ## Authors
 
@@ -34,103 +35,85 @@ Build Awesome PHP applications with a "Simple(Sweet) Application Architecture".
 
 ## Installation
 
-The recommended way to install Webby is [through Composer](https://getcomposer.org/).
-Are you [New to Composer?](https://getcomposer.org/doc/00-intro.md) click on the link.
+We recommend installing WebbyPHP via Composer
+ [Composer](https://getcomposer.org/).
+Are you new to Composer? Read this short guide: [Read this short guide:](https://getcomposer.org/doc/00-intro.md) click on the link.
 
+Install WebbyPHP:
 This will install the latest PHP supported version:
 
 ```bash
-$ composer create-project sylynder/webby <project-name>
+$ composer create-project webbyphp/webby <project-name>
 ```
 
-Make sure to replace *project-name* with the name of your project
+Replace <project-name> with your preferred project folder name.
+
 
 ## Documentation
 
-The main documentation of Webby can be found here: [Webby Docs](https://webby.sylynder.com/docs)
+The main documentation lives here: [WebbyPHP Docs](https://webbyphp.top/docs)
 
-The documentation is currently been updated constantly. It will take time to cover all aspects of the framework but we are working around the clock to make this possible. 
+Documentation is actively being expanded. We’re updating it continuously, and the accompanying Blog section will include beginner-friendly guides to help you learn the framework step-by-step.
 
-Currently we have planned to use the blogs section to guide developers through their journey in learning the framework.
+If you’re already familiar with CodeIgniter 3 and HMVC, you will feel at home immediately.
 
-If you have been developing with CodeIgniter 3 already and you are familiar with the HMVC approach you can still use the same knowlegde to get going.
+For deeper CI3 references, you may also visit:
+https://www.codeigniter.com/userguide3/index.html
 
-For developers who are very familiar with the CodeIgniter 3 framework can still refer to the documentation here: [CI3 Docs](https://www.codeigniter.com/userguide3/index.html)
+The concept of CodeIgniter 4 has not been so clear and rewriting CodeIgniter 3 has set the framework back in so many ways, this is a way to show that Codeigniter could have been improved gradually without the approach the Core Team used.
 
-The concept of CodeIgniter 4 has not been so clear and rewriting CodeIgniter 3 has set the framework back in so many ways, this is a way to show that Codeigniter could have been improved gradually without the approach the Core Team 
-used.
-
+## Why WebbyPHP?
+CodeIgniter 4 moved in a direction that left many CI3 developers behind. WebbyPHP demonstrates that CI3 could evolve gradually—without breaking its simplicity.
 
 ## Server Requirements
 
-PHP version 8.0 or newer is recommended.
+WebbyPHP recommends PHP 8.3+.
 
-PHP 8.1 was released in November 2021 and so most of it's functionalities were not known to be supported yet, this delayed the development of this project to work perfectly with the latest version 8.1 of PHP and the framework, ~~we advise to stay between versions 7.4 and 8.0 for stable PHP appplication development.~~ 
+PHP 8.3's support is for backward compatibility there were issues in CI3, but these have been resolved. WebbyPHP now supports:
 
-~~If you want to discover bugs and contribute, then you are welcome to use the PHP 8.1 version.~~
+- PHP 8.3 (You should be upgrading to PHP 8.4)
 
-Currently it supports 8.1 but no issues have come up yet. All issues can be discussed and it will be addressed. PHP 8.2 is here since December 2022. We will be looking forward to related issues too to resolve. Currently some issues have already been fixed.
+- PHP 8.4
+
+- PHP 8.5 and Newer versions as compatibility is confirmed
+
+If you encounter issues on more recent PHP versions, you’re free to report them — we fix compatibility continuously.
 
 ## Quick FAQs
 
-#### Why did you decide to create Webby
+#### Why did you create WebbyPHP?
 ---
-* Webby was created with PHP beginners in mind, to simplify how web applications can be built (with PHP) without complex concepts and functionalities
-* Looking at how other (PHP) frameworks makes it difficult for beginners to start, we are making the approach different. 
-* Also CodeIgniter 3 was not been updated for sometime and new PHP versions were not working until they updated to the recent version (3.1.13).
-* I used it as an opportunity to learn and understand more about Software Architecture and creating Software Paradigms.
+To give beginners a PHP framework that is simple, predictable, and easy to learn.
 
-#### Is it anything different from CodeIgniter 3 or 4?
+To provide a gentle introduction to modern PHP without overwhelming concepts.
+
+Because most modern frameworks are powerful—but intimidating for new developers.
+
+CodeIgniter 3 stalled for a long time, and updating it became a good learning journey in software architecture, framework design, and extensibility.
+
+
+#### Is WebbyPHP different from CodeIgniter 3 or 4?
 ---
-It uses the Core of the CodeIgniter 3 framework and borrows some new features added from CodeIgniter 4. It is designed to move developers who are familiar with CI3 to easily adapt to CI4 with a little similar syntax or concept.
+WebbyPHP is built on the core of CodeIgniter 3, while borrowing improvements and modern patterns inspired by CodeIgniter 4.
+
+Its goal is to help CI3 developers transition smoothly toward more modern PHP development—but with a familiar, stable syntax.
+
 
 
 ## Important Links
 
 The links below will guide you to know more about how Webby Works
 
-* [Installation Guide](https://webby.sylynder.com/docs/installation/)
-* [Getting Started](https://webby.sylynder.com/docs/getting-started/)
-* [Contribution Guide](https://webby.sylynder.com/docs/contribution-guide/)
-* [Learn Webby](https://blog.webby.sylynder.com)
-* [Community](https://github.com/sylynder/webby/discussions)
+* [Installation Guide](https://webbyphp.top/docs/installation/)
+* [Getting Started](https://webbyphp.top/docs/getting-started/)
+* [Contribution Guide](https://webbyphp.top/docs/contribution-guide/)
+* [Learn Webby](https://blog.webbyphp.top)
+* [Community](https://github.com/webbyphp/engine/discussions)
 
-
-## What's Next
-There are lots of future plans for Webby
-
-* [x] Enable and Test for PHP 8.1 compatibility
-* [x] Improve and simplify CI3's database migrations
-* [x] Enable module based packages to use composer packages
-* [x] Enable easy engine folder upgrade (Currently folder will have to be replaced when an update is available) (Done on 30th October 2022 18:22 PM)
-* [x] Move sylynder/codeigniter repo to sylynder/engine repo (Done on 31st December 2022 15:08 PM)
-* [ ] Create a compatible HTTP and Routing feature (may be PSR-7 compatible)  that enables general integration with other frameworks
-* [ ] Improve and optimize speed
-* [ ] Improve on cli or console feature
-* [ ] Integrate asynchronous features (may be fibers) [as a package]
-* [ ] And many more to add (and many more to learn)
-* [ ] Write version three (v3) with a few major class api change but try to not make heavy breaking changes so as to reduce future upgrade headache. Unlike other major PHP Frameworks
-
-
-
-## Used By
-
-This project is used by the following companies:
-
-- Seguah Dreams
-- Glomot Company
-- Wigal Vision
 
 ## Credits
 
-- Rougin (https://github.com/rougin/spark-plug)
-- Yidas (https://github.com/yidas/codeigniter-rest)
-- Chriskacerguis (https://github.com/chriskacerguis/codeigniter-restserver)
-- Nobitadore (https://github.com/nobitadore/Arrayz)
-- Lonnieezell (https://github.com/lonnieezell/Bonfire)
-- GustMartins (https://github.com/GustMartins/Slice-Library)
-- CodeIgniter 3 (https://github.com/bcit-ci/CodeIgniter)
-- CodeIgniter 4 (https://github.com/codeigniter4/CodeIgniter4)
+- Kwame Oteng Appiah Nti (https://github.com/otengkwame)
 - [All Contributors][engine-contributors]
 
 
@@ -138,6 +121,6 @@ This project is used by the following companies:
 
 We are using the MIT License (MIT). Please see our LICENSE.md file. If you want to know more about the license go to [LICENSE]((https://choosealicense.com/licenses/mit/)) for more information.
 
-[webby-contributors]: https://github.com/sylynder/webby/contributors
+[webby-contributors]: https://github.com/webbyphp/webby/contributors
 
-[engine-contributors]: https://github.com/sylynder/engine/contributors
+[engine-contributors]: https://github.com/webbyphp/engine/contributors
