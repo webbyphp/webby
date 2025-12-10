@@ -20,7 +20,7 @@ This person will coordinate the fix and release process, involving the following
 - Confirm the problem and determine the affected versions.
 - Audit code to find any potential similar problems.
 - Prepare fixes for all releases still under maintenance. These fixes will be released as fast as possible.
-- Publish security advisories at https://github.com/sylynder/engine/security/advisories
+- Publish security advisories at https://github.com/webbyphp/engine/security/advisories
 
 ## Comments on this Policy
 
