@@ -10,34 +10,63 @@
  *
  * Because Webby can handle CLI requests as just another web request
  * this implementation mainly acts as a passthru to the framework itself.
+ * 
+ * @since 3.0.0
  */
 
 // Load composer
 require_once __DIR__ . '/vendor/autoload.php';
 
+// Check PHP version
+if (PHP_VERSION_ID < 80300) {
+    fwrite(STDERR, sprintf(
+        "Webby requires PHP 8.3.0 or higher. You are using PHP %s.\n",
+        PHP_VERSION
+    ));
+    exit(1);
+}
+
+// Define Constants
 // Define Webby Rootpath
 define('WEBBY_ROOTPATH', __DIR__);
+define('WEBBY_VERSION', '3.0.0');
+define('WEBBY_START_TIME', microtime(true));
+define('WEBBY_START_MEMORY', memory_get_usage());
 
 // Define Console Application Environment
 // Leave this untouched since console depends on it
-define('ENVIRONMENT', 'development'); 
+// Define environment (can be overridden by ENV variable)
+define('ENVIRONMENT', getenv('app.env') ?: 'development');
 
+// PHP CLI command (allow override via environment)
+define('PHP_CLI_VERSION', getenv('php.cli.version') ?: 'php');
 
-// PHP CLI VERSION
-define('PHP_CLI_VERSION', 'php');
-
-// Use Console Class
+// Load Console class
 use Base\Console\Console;
+use Base\Console\ConsoleColor;
 
-// Grab argv values
-$args = $_SERVER['argv'];
+try {
+    // Validate args
+    $args = $_SERVER['argv'] ?? [];
 
-/*
-* --------------------------------------------------------------------
-* Run Webby Cli Application
-* --------------------------------------------------------------------
-* 
-* All commands go through Console::run()
-*
-*/
-Console::run($args);
+    if (empty($args)) {
+        throw new RuntimeException('No command arguments provided');
+    }
+
+    // Display banner for interactive commands
+    if (!in_array('--quiet', $args) && !in_array('-q', $args)) {
+        Console::displayBanner();
+    }
+
+    // Run the console application
+    Console::run($args);
+} catch (Throwable $e) {
+
+    fwrite(STDERR, ConsoleColor::red("\nError: " . $e->getMessage() . "\n\n"));
+
+    if (ENVIRONMENT === 'development') {
+        fwrite(STDERR, ConsoleColor::dim($e->getTraceAsString() . "\n\n"));
+    }
+
+    exit(1);
+}
