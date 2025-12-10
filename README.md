@@ -31,7 +31,7 @@ Build powerful PHP applications with a simple, sweet, and scalable architecture.
 
 - [@otengkwame](https://www.github.com/otengkwame)
 - [All Contributors][webby-contributors]
-- [All Sylynder Engine Contributors][engine-contributors]
+- [All WebbyPHP Engine Contributors][engine-contributors]
 
 ## Installation
 
