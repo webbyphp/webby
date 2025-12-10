@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         bootstrap="./vendor/webbyphp/engine/Core/core/Tests/Bootstrap.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Webby Test Suite">
+            <directory>./tests/Webby</directory>
+        </testsuite>
+        <testsuite name="Pest">
+            <directory suffix="Test.php">./tests/Pest</directory>
+        </testsuite>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory suffix="Test.php">./tests/Feature</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>app</directory>
+            <directory suffix=".php">./vendor/webbyphp/engine/CodeIgniter/Framework/</directory>
+            <directory suffix=".php">./vendor/webbyphp/engine/Core/</directory>
+        </include>
+    </source>
+    <php>
+        <!-- Set the correct path to your CodeIgniter3 or WebbyPHP public directory -->
+        <const name="FCPATH" value="./public/"/>
+    </php>
+</phpunit>
