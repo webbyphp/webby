@@ -1,7 +1,7 @@
 {
     "name": "sylynder/webby",
     "type": "project",
-    "description": "Webby: A lego-like PHP Framework extended from the CodeIgniter3 Framework for easy web application development",
+    "description": "WebbyPHP: A lego-like PHP Framework extended from the CodeIgniter 3 Framework for easy web application development",
     "keywords": [
         "framework",
         "sylynder",
@@ -10,23 +10,37 @@
         "php"
     ],
     "license": "MIT",
-    "authors": [{
-        "name": "Kwame Oteng Appiah-Nti",
-        "email": "developerkwame@gmail.com"
-    }],
+    "authors": [
+        {
+            "name": "Kwame Oteng Appiah-Nti",
+            "email": "developerkwame@gmail.com"
+        }
+    ],
     "require": {
         "php": "^8.1",
         "sylynder/engine": "^2.9"
     },
     "require-dev": {
-        "symfony/var-dumper": "^5.2"
-    },
-    "config": {
-        "optimize-autoloader": true
+        "symfony/var-dumper": "^5.2",
+        "pestphp/pest": "^3.8"
     },
     "autoload": {
+        "psr-4": {}
+    },
+    "autoload-dev": {
         "psr-4": {
-            "App\\": "app"
+            "Tests\\Unit\\": "tests/Unit/",
+            "Tests\\Feature\\": "tests/Feature/",
+            "Tests\\Pest\\": "tests/Pest/",
+            "Webby\\Tests\\": "tests/Webby/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     },
     "scripts": {
@@ -35,6 +49,6 @@
             "@php webby key:generate"
         ]
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
