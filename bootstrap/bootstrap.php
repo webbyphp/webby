@@ -199,7 +199,7 @@ define('WRITABLEPATH', str_replace('\\', DIRECTORY_SEPARATOR, $writable_director
 define('ROOTPATH', str_replace('public' . DIRECTORY_SEPARATOR, '', FCPATH));
 
 // Path to the engine folder
-define('ENGINEPATH', COMPOSERPATH . 'sylynder/engine' . DIRECTORY_SEPARATOR);
+define('ENGINEPATH', COMPOSERPATH . 'webbyphp/engine' . DIRECTORY_SEPARATOR);
 
 /**
  *
