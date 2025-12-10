@@ -2,7 +2,7 @@
 
 use Base\Controllers\WebController;
 
-class App extends WebController 
+class App extends WebController
 {
 	public function __construct()
 	{
@@ -15,5 +15,4 @@ class App extends WebController
 	{
 		return view('welcome');
 	}
-
 }
