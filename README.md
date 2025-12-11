@@ -91,14 +91,11 @@ Because most modern frameworks are powerful—but intimidating for new developer
 
 CodeIgniter 3 stalled for a long time, and updating it became a good learning journey in software architecture, framework design, and extensibility.
 
-
 #### Is WebbyPHP different from CodeIgniter 3 or 4?
 ---
 WebbyPHP is built on the core of CodeIgniter 3, while borrowing improvements and modern patterns inspired by CodeIgniter 4.
 
 Its goal is to help CI3 developers transition smoothly toward more modern PHP development—but with a familiar, stable syntax.
-
-
 
 ## Important Links
 
@@ -108,7 +105,7 @@ The links below will guide you to know more about how Webby Works
 * [Getting Started](https://webbyphp.top/docs/getting-started/)
 * [Contribution Guide](https://webbyphp.top/docs/contribution-guide/)
 * [Learn Webby](https://blog.webbyphp.top)
-* [Community](https://github.com/webbyphp/engine/discussions)
+* [Community](https://github.com/webbyphp/webby/discussions)
 
 
 ## Credits
