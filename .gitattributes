@@ -6,9 +6,14 @@
 
 # git files
 /.gitattributes     export-ignore
-/tests              export-ignore
 /.travis.yml        export-ignore
-/phpunit.xml        export-ignore
+
+* text=auto eol=lf 
+*.blade.php diff=html 
+*.css diff=css 
+*.html diff=html 
+*.md diff=markdown 
+*.php diff=php
 
 # Don't give project files
 .github/           export-ignore
