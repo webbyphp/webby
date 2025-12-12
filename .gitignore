@@ -152,7 +152,6 @@ nb-configuration.xml
 .vscode-upload.json
 
 /results/
-/phpunit*.xml
 /.phpunit.*.cache
 .phpunit.result.cache
 

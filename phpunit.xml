@@ -26,7 +26,6 @@
         </include>
     </source>
     <php>
-        <!-- Set the correct path to your CodeIgniter3 or WebbyPHP public directory -->
         <const name="FCPATH" value="./public/"/>
     </php>
 </phpunit>
