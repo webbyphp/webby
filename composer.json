@@ -21,12 +21,9 @@
         "php": "^8.3",
         "webbyphp/engine": "^3.0"
     },
-    "require-dev": {
-        "symfony/var-dumper": "^5.2",
-        "pestphp/pest": "^3.8"
-    },
-    "autoload": {
-        "psr-4": {}
+     "suggest": {
+        "pestphp/pest": "If you want to use the Pest testing framework, run `composer require pestphp/pest --dev` to install it.",
+        "symfony/var-dumper": "If you want to use the dd() and dump() for debugging, run `composer require symfony/var-dumper --dev` to install it."
     },
     "autoload-dev": {
         "psr-4": {
@@ -47,10 +44,7 @@
     "scripts": {
         "post-create-project-cmd": [
             "@php webby set --env",
-            "@php webby key:generate",
-            "echo \"Setting up local PHPUnit config...\"",
-            "php -r \"file_exists('phpunit.xml') || copy('phpunit.xml.dist', 'phpunit.xml');\"",
-            "echo \"Project setup complete!\""
+            "@php webby key:generate"
         ],
         "test": "./vendor/bin/pest --colors=always",
         "test:coverage": "./vendor/bin/pest --coverage --colors=always"
