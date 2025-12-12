@@ -2,7 +2,7 @@
     <img src="public/assets/webbyphp.png" width="600" alt="WebbyPHP">
 </p>
 
-[![MIT License](https://img.shields.io/github/license/webbyphp/webby)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs) ![Lines of code](https://img.shields.io/tokei/lines/github/webbyphp/webby) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/webbyphp/webby) ![Packagist Version](https://img.shields.io/packagist/v/webbyphp/webby) ![Packagist Downloads (custom server)](https://img.shields.io/packagist/dt/webbyphp/webby)
+[![MIT License](https://img.shields.io/github/license/webbyphp/webby)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/webbyphp/webby) ![Packagist Version](https://img.shields.io/packagist/v/webbyphp/webby) ![Packagist Downloads (custom server)](https://img.shields.io/packagist/dt/webbyphp/webby)
 
 ## About WebbyPHP
 ---
@@ -48,7 +48,6 @@ $ composer create-project webbyphp/webby <project-name>
 
 Replace <project-name> with your preferred project folder name.
 
-
 ## Documentation
 
 The main documentation lives here: [WebbyPHP Docs](https://webbyphp.top/docs)
@@ -69,7 +68,7 @@ CodeIgniter 4 moved in a direction that left many CI3 developers behind. WebbyPH
 
 WebbyPHP recommends PHP 8.3+.
 
-PHP 8.3's support is for backward compatibility there were issues in CI3, but these have been resolved. WebbyPHP now supports:
+PHP 8.3's support is for backward compatibility, there were issues in CI3, but these have been resolved. WebbyPHP now supports:
 
 - PHP 8.3 (You should be upgrading to PHP 8.4)
 
@@ -93,7 +92,7 @@ CodeIgniter 3 stalled for a long time, and updating it became a good learning jo
 
 #### Is WebbyPHP different from CodeIgniter 3 or 4?
 ---
-WebbyPHP is built on the core of CodeIgniter 3, while borrowing improvements and modern patterns inspired by CodeIgniter 4.
+WebbyPHP is built on the core of CodeIgniter 3, while borrowing improvements and modern patterns inspired by CodeIgniter 4 and Laravel.
 
 Its goal is to help CI3 developers transition smoothly toward more modern PHP development—but with a familiar, stable syntax.
 
@@ -101,18 +100,16 @@ Its goal is to help CI3 developers transition smoothly toward more modern PHP de
 
 The links below will guide you to know more about how Webby Works
 
-* [Installation Guide](https://webbyphp.top/docs/installation/)
+* [Installation Guide](https://webbyphp.top/docs/getting-started/installation/)
 * [Getting Started](https://webbyphp.top/docs/getting-started/)
 * [Contribution Guide](https://webbyphp.top/docs/contribution-guide/)
 * [Learn Webby](https://blog.webbyphp.top)
 * [Community](https://github.com/webbyphp/webby/discussions)
 
-
 ## Credits
 
 - Kwame Oteng Appiah Nti (https://github.com/otengkwame)
 - [All Contributors][engine-contributors]
-
 
 ## License
 
